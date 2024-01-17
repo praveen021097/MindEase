@@ -92,6 +92,29 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
 
     validate();
+    const payload ={
+        name:name.value,
+        email:email.value,
+        password:password.value
+    }
+
+    fetch("http://localhost:5000/api/v1/register",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json",
+        },
+        body:JSON.stringify(payload)
+    }).then((res)=>{
+        return res.json();
+    }).then((data)=>{
+        alert("sign up successfully!");
+        window.location.href="login.html";
+        return data;
+    })
+    .catch((err)=>{
+        alert("something went wrong!")
+        console.log(err)
+    })
 
 
 })
