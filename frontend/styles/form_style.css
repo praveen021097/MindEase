@@ -99,3 +99,10 @@ form{
     color: black;
     font-family: sans-serif;
 }
+
+.form-error{
+    color :red;
+}
+.success{
+    color: green;
+}
